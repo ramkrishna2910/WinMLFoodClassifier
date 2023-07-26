@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="ImageClassifierAppUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ImageClassifierAppUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Margin="20">
+            <TextBlock x:Name="Menu" 
+                       FontWeight="Bold" 
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,20"
+                       Text="WinML Food Forcaster"
+                       FontSize="50"
+                       HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <RadioButton x:Name="toggleButtonA" Content="Cpu" GroupName="ToggleGroup" IsChecked="True" Checked="RadioButton_Checked"/>
+                <RadioButton x:Name="toggleButtonB" Content="DirectX" GroupName="ToggleGroup" Checked="RadioButton_Checked" Margin="20,0,0,0"/>
+                <RadioButton x:Name="toggleButtonC" Content="DirectXHighPerformance" GroupName="ToggleGroup" Checked="RadioButton_Checked" Margin="20,0,0,0"/>
+                <RadioButton x:Name="toggleButtonD" Content="DirectXMinPower" GroupName="ToggleGroup" Checked="RadioButton_Checked" Margin="20,0,0,0"/>
+            </StackPanel>
+
+            <Button Name="recognizeButton"
+                    Content="Upload Image"
+                    Click="OpenFileButton_Click" 
+                    Width="200"
+                    Height="50"
+                    IsEnabled="True" 
+                    HorizontalAlignment="Left"
+                    Margin="0,0,0,20"/>
+
+            <Border BorderBrush="Gray" BorderThickness="1" Padding="10" Margin="0,0,0,20">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Output:" FontWeight="Bold" FontSize="18" />
+                        <TextBlock Name="displayOutput" 
+                                   FontWeight="Bold" 
+                                   TextWrapping="Wrap"
+                                   Margin="10,0,0,0"
+                                   FontSize="18"
+                                   Text="" 
+                                   Foreground="Orange"
+                                   Grid.Column="1"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Confidence (%):" FontWeight="Bold" FontSize="18" />
+                        <TextBlock Name="displayProbability" 
+                                   FontWeight="Bold" 
+                                   TextWrapping="Wrap"
+                                   Margin="10,0,0,0"
+                                   Text="" 
+                                   Foreground="Orange"
+                                   FontSize="18"
+                                   Grid.Column="1"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Latency (ms):" FontWeight="Bold" FontSize="18" />
+                        <TextBlock Name="displayExecutionTime" 
+                                   FontWeight="Bold" 
+                                   TextWrapping="Wrap"
+                                   Margin="10,0,0,0"
+                                   FontSize="18"
+                                   Foreground="Orange"
+                                   Text="" 
+                                   Grid.Column="1"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Hardware:" FontWeight="Bold" FontSize="18" />
+                        <TextBlock Name="displayHardware" 
+                                   FontWeight="Bold" 
+                                   TextWrapping="Wrap"
+                                   Margin="10,0,0,0"
+                                   Text="" 
+                                   Foreground="Orange"
+                                   FontSize="18"
+                                   Grid.Column="1"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!--Image preview -->
+            <Image Name="UIPreviewImage" Stretch="Uniform" MaxWidth="400" MaxHeight="400"/>
+        </StackPanel>
+    </Grid>
+</Page>
